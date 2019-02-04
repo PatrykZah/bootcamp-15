@@ -17,3 +17,30 @@ var OnePlusOne = new Phone("OnePlus", 550, "red");
 SamsungGalaxyS6.printInfo();
 iPhone6S.printInfo();
 OnePlusOne.printInfo();
+
+
+///////
+
+function Button(text) {
+	this.text = text || 'Hello'
+}
+
+Button.prototype = {
+	create : function() {
+		this.element = document.createElement('button')
+		this.element.innerText = this.text
+		this.element.addEventListener('click', function() {
+			alert(this.innerText);
+		});
+		document.body.appendChild(this.element);
+	}
+}
+
+var btn1 = new Button("test1")
+btn1.create();
+
+var btn2 = new Button("test2")
+btn2.create();
+
+var btn3 = new Button()
+btn3.create();
