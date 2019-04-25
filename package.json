@@ -6,7 +6,7 @@
   "scripts": {
     "watch": "npm run clean && parcel src/index.html --open --no-autoinstall --port 8080",
     "prebuild": "npm run clean",
-    "build": "parcel build src/index.html",
+    "build": "parcel build src/index.html --public-url './docs'",
     "clean": "rimraf dist && rimraf .cache",
     "code-quality": "npm run format && npm run lint",
     "format": "prettier --write \"src/**/*.{js,html,scss}\"",
