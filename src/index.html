@@ -7,17 +7,152 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no"
     />
     <title>15</title>
-
     <link rel="stylesheet" type="text/css" href="sass/style.scss" />
   </head>
   <body>
-    <div id="board" class="board">
-      <h1>Kanban board</h1>
-      <button class="create-column">Add a column</button>
-      <div class="column-container"></div>
+    <nav class="page-nav">
+      <button id="app_newkanban" class="btn btn-add-board" title="add board"></button>
+      <h1 class="title">Kanban</h1>
+    </nav>
+
+    <!-- 
+	<div id="board_1" class="board">
+		<nav class="board-nav">
+			<h1>Kanban board</h1>
+			<button class="btn-create-column">
+				Add Kanban column
+			</button>
+		</nav>
+		
+		<div class="columns-container">
+			<div class="column" id="c_2">
+				<div class="column-nav">
+					<h2 class="column-title">name</h2>
+					<button class="btn btn-add"></button>
+					<button class="btn btn-edit2"></button>
+				</div>
+				<ul class="cards-list">
+					<li>
+						<div class="card-nav">
+							<h3 class="card-title">title1</h3>
+							<button class="btn btn-del"></button>
+							<button class="btn btn-edit"></button>
+						</div>
+						<span class="card-text">
+							fooooo 1
+						</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	 -->
+
+    <div id="overlay" class="">
+      <div class="o-add-column">
+        <h2>Add new column</h2>
+        <label
+          >Column Name
+          <input type="text" data="title" />
+        </label>
+
+        <label
+          >Column color
+          <input type="color" data="color" />
+        </label>
+
+        <button onclick="kanban.newcolumn()">Create column</button>
+      </div>
+
+      <div class="o-edit-column">
+        <h2>Edit column</h2>
+        <label
+          >Column Name
+          <input type="text" data="title" />
+        </label>
+        <label
+          >Column color
+          <input type="edit-color" data="color" />
+        </label>
+
+        <button onclick="kanban.editcolumn()">Apply changes</button>
+      </div>
+
+      <div class="o-add-card">
+        <h2>Add new card</h2>
+        <label
+          >Card Name
+          <input type="text" data="title" />
+        </label>
+
+        <label
+          >Card title color
+          <input type="color" data="color" />
+        </label>
+
+        <textarea data="content"></textarea>
+
+        <button onclick="kanban.newcard()">Create card</button>
+      </div>
+
+      <div class="o-edit-card">
+        <h2>Edit current card</h2>
+        <label
+          >Card Name
+          <input type="text" data="title" />
+        </label>
+
+        <label
+          >Card title color
+          <input type="color" data="color" />
+        </label>
+
+        <textarea data="content"></textarea>
+        <button onclick="kanban.newcard()">Apply changes</button>
+      </div>
     </div>
 
-    <script src="vendor/Sortable.min.js"></script>
+    <!--
+<script id="-template" type="x-tmpl-mustache">
+</script>
+-->
+
+    <script id="board-template" type="x-tmpl-mustache">
+      <div id="board_{{id}}" class="board">
+      	<nav class="board-nav">
+      		<span class="title">{{title}}</span>
+      		<button class="btn btn-del"></button>
+      		<button class="btn btn-create-column"></button>
+      	</nav>
+      	<div class="columns-container">
+      	</div>
+      </div>
+    </script>
+
+    <script id="column-template" type="x-tmpl-mustache">
+      <div class="column" id="{{id}}">
+      	<div class="column-nav">
+      		<h2 class="column-title">{{title}}</h2>
+      		<button class="btn btn-add"></button>
+      		<button class="btn btn-del"></button>
+      		<button class="btn btn-edit2"></button>
+      	</div>
+      	<ul class="cards-list">
+      	</ul>
+      </div>
+    </script>
+
+    <script id="card-template" type="x-tmpl-mustache">
+      <li card-id="{{id}}">
+      	<div class="card-nav">
+      		<h3 class="card-title">{{title}}</h3>
+      		<button class="btn btn-del"></button>
+      		<button class="btn btn-edit"></button>
+      	</div>
+      	<span class="card-text">{{content}}</span>
+      </li>
+    </script>
+
     <script src="js/script.js" type="text/javascript"></script>
   </body>
 </html>
