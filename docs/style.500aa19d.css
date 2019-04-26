@@ -1,15 +1,17 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   font-family: sans-serif;
   background-color: #444;
 }
+
 .page-nav {
   display: flex;
   font-size: 15px;
   margin: 0;
-  color: #fff;
+  color: white;
   background-color: #333;
   padding: 20px;
   line-height: 1;
@@ -22,6 +24,7 @@ body {
 .page-nav .title {
   margin: auto;
 }
+
 .board {
   border: 1px solid;
 }
@@ -29,14 +32,15 @@ body {
   display: flex;
   font-size: 1em;
   margin: 0;
-  color: #fff;
+  color: white;
   background-color: #666;
   padding: 20px;
   line-height: 1;
   justify-content: center;
 }
 .board .board-nav .btn {
-  margin: 0 20px 0 0;
+  margin: 0;
+  margin-right: 20px;
 }
 .board .board-nav .title {
   margin-right: 20px;
@@ -53,10 +57,11 @@ body {
   display: flex;
   margin: 0;
   background-color: #333;
-  color: #fff;
+  color: white;
 }
 .board .columns-container .column .column-nav .column-title {
-  margin: 0 0 0 10px;
+  margin: 0;
+  margin-left: 10px;
   flex-basis: 100%;
 }
 .board .columns-container .column .column-nav .btn {
@@ -80,15 +85,16 @@ body {
 .board .columns-container .column .cards-list > * .card-nav {
   display: flex;
   font-size: 20px;
-  color: #fff;
-  background-color: #000;
+  color: white;
+  background-color: black;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
 }
 .board .columns-container .column .cards-list > * .card-nav .card-title {
-  margin: 0 0 0 10px;
+  margin: 0;
+  margin-left: 10px;
   flex-basis: 100%;
-  text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   mix-blend-mode: difference;
 }
 .board .columns-container .column .cards-list > * .card-nav .btn {
@@ -98,6 +104,7 @@ body {
 .board .columns-container .column .cards-list > * .card-text {
   white-space: pre-wrap;
 }
+
 .btn {
   width: 30px;
   padding: 10px;
@@ -106,30 +113,40 @@ body {
   background-color: #999;
   background-size: 75%;
   background-repeat: no-repeat;
-  background-position: 50%;
+  background-position: center;
   cursor: pointer;
+  /*
+  @at-root .btn-create-column:before {
+  	content: "";
+  	width: 20px;
+  	height: 20px;
+  	background-image: url("../images/table.svg");
+  	background-size: contain;
+  }
+  */
 }
 .btn:hover {
   background-color: #777;
 }
 .btn.btn-add {
-  background-image: url(%27./docs%27/addnote.59761655.svg);
+  background-image: url("docs/addnote.8c0cf61d.svg");
 }
 .btn.btn-del {
-  background-image: url(%27./docs%27/delete.20ae4310.svg);
+  background-image: url("docs/delete.7f0a966a.svg");
 }
 .btn.btn-edit {
-  background-image: url(%27./docs%27/tools.e093aab7.svg);
+  background-image: url("docs/tools.48801cbf.svg");
 }
 .btn.btn-edit2 {
-  background-image: url(%27./docs%27/layout.13a87be7.svg);
+  background-image: url("docs/layout.f0379df1.svg");
 }
 .btn.btn-create-column {
-  background-image: url(%27./docs%27/addcolumn.9036179d.svg);
+  background-image: url("docs/addcolumn.f0dac5f0.svg");
 }
 .btn.btn-add-board {
-  background-image: url(%27./docs%27/table.1887a4c3.svg);
+  background-image: url("docs/table.b9639456.svg");
 }
+
 #overlay {
   display: none;
   position: fixed;
@@ -164,4 +181,5 @@ body {
 #overlay .show {
   display: flex;
 }
-/*# sourceMappingURL=%27./docs%27/style.4e8d53c7.css.map */
+
+/*# sourceMappingURL=docs/style.500aa19d.css.map */

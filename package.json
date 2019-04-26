@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "npm run clean && parcel src/index.html --open --no-autoinstall --port 8080",
+    "watch": "npm run clean && parcel src/index.html --open --no-autoinstall --port 80",
+    "watchdocs": "npm run clean && parcel src/index.html --open --no-autoinstall --port 8080 --out-dir ./docs/ --public-url ./",
     "prebuild": "npm run clean",
-    "build": "parcel build src/index.html --public-url './docs'",
+    "build": "parcel build src/index.html --no-minify --public-url ./",
+    "buildgit": "rimraf docs && rimraf .cache && parcel build src/index.html --no-content-hash --no-minify --public-url ./docs/ --out-dir ./docs/ && mv -f ./docs/index.html ./index.html && mkdir docs\\docs && mv -f ./docs/*.svg ./docs/docs",
     "clean": "rimraf dist && rimraf .cache",
     "code-quality": "npm run format && npm run lint",
     "format": "prettier --write \"src/**/*.{js,html,scss}\"",
@@ -14,7 +16,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged && lint-staged"
+      "pre-commit": "pretty-quick --staged && lint-staged && git add index.html && git add docs && npm run buildgit"
     }
   },
   "lint-staged": {
