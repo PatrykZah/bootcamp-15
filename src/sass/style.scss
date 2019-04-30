@@ -177,8 +177,12 @@ body {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
 
+  &.active {
+    display: block;
+  }
+
   > * {
-    display: none;
+    display: flex;
     flex-direction: column;
     background-color: #666;
     //margin: auto;
@@ -200,12 +204,5 @@ body {
   input {
     display: block;
     margin: auto;
-  }
-
-  &.show {
-    display: block;
-  }
-  .show {
-    display: flex;
   }
 }

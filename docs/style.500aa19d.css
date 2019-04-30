@@ -156,8 +156,11 @@ body {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
 }
+#overlay.active {
+  display: block;
+}
 #overlay > * {
-  display: none;
+  display: flex;
   flex-direction: column;
   background-color: #666;
   padding: 20px;
@@ -174,12 +177,6 @@ body {
 #overlay input {
   display: block;
   margin: auto;
-}
-#overlay.show {
-  display: block;
-}
-#overlay .show {
-  display: flex;
 }
 
 /*# sourceMappingURL=docs/style.500aa19d.css.map */

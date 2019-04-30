@@ -50,60 +50,6 @@
 	 -->
 	 
 	<div id="overlay" class="">
-		<div class="o-add-column">
-			<h2>Add new column</h2>
-			<label>Column Name
-				<input type="text" data="title">
-			</label>
-			
-			<label>Column color
-				<input type="color" data="color">
-			</label>
-			
-			<button>Create column</button>
-		</div>
-
-		<div class="o-edit-column">
-			<h2>Edit column</h2>
-			<label>Column Name
-				<input type="text" data="title">
-			</label>
-			<label>Column color
-				<input type="edit-color" data="color">
-			</label>
-			
-			<button">Apply changes</button>
-		</div>
-		
-		<div class="o-add-card">
-			<h2>Add new card</h2>
-			<label>Card Name
-				<input type="text" data="title">
-			</label>
-
-			<label>Card title color
-				<input type="color" data="color">
-			</label>
-			
-			<textarea data="content"></textarea>
-
-			<button>Create card</button>
-		</div>
-		
-		<div class="o-edit-card">
-			<h2>Edit current card</h2>
-			<label>Card Name
-				<input type="text" data="title">
-			</label>
-			
-			<label>Card title color
-				<input type="color" data="color">
-			</label>
-			
-			<textarea data="content"></textarea>
-			<button>Apply changes</button>
-		</div>
-		
 	</div>
 
   
@@ -114,10 +60,11 @@
 <script id="-template" type="x-tmpl-mustache">
 </script>
 -->
+<div hidden>
 
 <script id="board-template" type="x-tmpl-mustache">
 	<div id="board_{{id}}" class="board">
-		<nav class="board-nav">
+		<nav class="board-nav" style="background-color:{{color}}">
 			<span class="title">{{title}}</span>
 			<button class="btn btn-del"></button>
 			<button class="btn btn-create-column"></button>
@@ -129,7 +76,7 @@
 
 <script id="column-template" type="x-tmpl-mustache">
 	<div class="column" id="{{id}}">
-		<div class="column-nav">
+		<div class="column-nav" style="background-color:{{color}}">
 			<h2 class="column-title">{{title}}</h2>
 			<button class="btn btn-add"></button>
 			<button class="btn btn-del"></button>
@@ -140,17 +87,64 @@
 	</div>
 </script>
 
-
-
 <script id="card-template" type="x-tmpl-mustache">
 	<li card-id="{{id}}">
-		<div class="card-nav">
+		<div class="card-nav" style="background-color:{{color}}">
 			<h3 class="card-title">{{title}}</h3>
 			<button class="btn btn-del"></button>
 			<button class="btn btn-edit"></button>
 		</div>
 		<span class="card-text">{{content}}</span>
 	</li>
+</script>
+
+<!-- overlay -->
+
+<script id="o-board-template" type="x-tmpl-mustache">
+	<div>
+		<h2>Add new Kanbal board</h2>
+		<label>Board Name
+			<input type="text" data="title" value="{{title}}">
+		</label>
+		
+		<label>Board color
+			<input type="color" data="color" value="{{color}}">
+		</label>
+		
+		<button>Apply</button>
+	</div>
+</script>
+
+<script id="o-column-template" type="x-tmpl-mustache">
+	<div>
+		<h2>Add new column</h2>
+		<label>Column Name
+			<input type="text" data="title" value="{{title}}">
+		</label>
+		
+		<label>Column color
+			<input type="color" data="color" value="{{color}}">
+		</label>
+		
+		<button>Apply</button>
+	</div>
+</script>
+
+<script id="o-card-template" type="x-tmpl-mustache">
+	<div>
+		<h2>Add new card</h2>
+		<label>Card Name
+			<input type="text" data="title" value="{{title}}">
+		</label>
+
+		<label>Card title color
+			<input type="color" data="color" value="{{color}}">
+		</label>
+		
+		<textarea data="content"></textarea>
+
+		<button>Apply</button>
+	</div>
 </script>
 
 <script src="js/script.js" type="text/javascript"></script>
