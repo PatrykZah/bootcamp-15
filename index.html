@@ -45,12 +45,6 @@
 		</div>
 	</div>
 	 -->
-	 
-	<div id="overlay" class="">
-	</div>
-
-  
-
 
 
 <!--
@@ -63,8 +57,9 @@
 	<div id="board_{{id}}" class="board">
 		<nav class="board-nav" style="background-color:{{color}}">
 			<span class="title">{{title}}</span>
-			<button class="btn btn-del"></button>
-			<button class="btn btn-create-column"></button>
+			<button class="btn btn-create-column" title="create column"></button>
+			<button class="btn btn-edit2" title="edit board"></button>
+			<button class="btn btn-del" title="delete board"></button>
 		</nav>
 		<div class="columns-container">
 		</div>
@@ -75,9 +70,9 @@
 	<div class="column" id="{{id}}">
 		<div class="column-nav" style="background-color:{{color}}">
 			<h2 class="column-title">{{title}}</h2>
-			<button class="btn btn-add"></button>
-			<button class="btn btn-del"></button>
-			<button class="btn btn-edit2"></button>
+			<button class="btn btn-add" title="add card"></button>
+			<button class="btn btn-edit2" title="edit column"></button>
+			<button class="btn btn-del" title="remove column"></button>
 		</div>
 		<ul class="cards-list">
 		</ul>
@@ -85,11 +80,11 @@
 </script>
 
 <script id="card-template" type="x-tmpl-mustache">
-	<li card-id="{{id}}">
+	<li class='card' id="{{id}}">
 		<div class="card-nav" style="background-color:{{color}}">
 			<h3 class="card-title">{{title}}</h3>
-			<button class="btn btn-del"></button>
-			<button class="btn btn-edit"></button>
+			<button class="btn btn-edit" title="edit card"></button>
+			<button class="btn btn-del" title="delete card"></button>
 		</div>
 		<span class="card-text">{{content}}</span>
 	</li>
@@ -114,9 +109,10 @@
 
 <script id="o-column-template" type="x-tmpl-mustache">
 	<div>
-		<h2>Add new column</h2>
+		{{#title}}<h2>Edit column</h2>{{/title}}
+		{{^title}}<h2>Add new column</h2>{{/title}}
 		<label>Column Name
-			<input type="text" data="title" value="{{title}}">
+			<input type="text" data="title" value="{{title}}" placeholder="new column">
 		</label>
 		
 		<label>Column color
@@ -129,7 +125,8 @@
 
 <script id="o-card-template" type="x-tmpl-mustache">
 	<div>
-		<h2>Add new card</h2>
+		{{#title}}<h2>Edit card</h2>{{/title}}
+		{{^title}}<h2>Add new card</h2>{{/title}}
 		<label>Card Name
 			<input type="text" data="title" value="{{title}}">
 		</label>
@@ -138,7 +135,7 @@
 			<input type="color" data="color" value="{{color}}">
 		</label>
 		
-		<textarea data="content"></textarea>
+		<textarea data="content">{{content}}</textarea>
 
 		<button>Apply</button>
 	</div>

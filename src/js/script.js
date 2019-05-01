@@ -1,6 +1,6 @@
 /* eslint-env browser */
 'use strict';
-// var Sortable = require('sortablejs');
+var Sortable = require('sortablejs');
 var Mustache = require('mustache');
 
 var log = console.log // eslint-disable-line
@@ -33,6 +33,12 @@ class Kanban {
 
     this.board = this.generateTemplate({ name: 'board-template', tmpl_data: data });
     document.children[0].children[1].appendChild(this.board);
+
+    Sortable.create(this.board.querySelector('.columns-container'), {
+      group: 'column',
+      handle: '.column-title',
+      animation: 150
+    });
 
     this.board.querySelector('.btn-create-column').addEventListener('click', () => { // add column
       this.oPrompt('o-column-template', {}, this.newcolumn.bind(this));
@@ -74,6 +80,12 @@ class Kanban {
       node: elm,
       data: {}
     };
+
+    Sortable.create(elm.querySelector('.cards-list'), {
+      group: 'card',
+      handle: '.card-title',
+      animation: 150
+    });
 
     this.PropertyDescriptorsMerge(this.columns[data.id].data,
       { this: this },
@@ -122,6 +134,7 @@ class Kanban {
       node: elm,
       data: {}
     };
+
     // this.cards[data.id] = data
 
     this.PropertyDescriptorsMerge(this.cards[data.id].data,
@@ -254,3 +267,4 @@ document.getElementById('app_newkanban').addEventListener('click', (event) => {
 board = new Kanban({ title: 'preset board created from js', color: '#696' });
 board.newcolumn({ title: 'js column' });
 board.newcard({ title: 'js card', content: 'you can edit me or... delete me', column: board.columns[Object.keys(board.columns)[0]].node }); // a bit ugly way but whatever
+board.newcolumn({ title: 'js column2' });
