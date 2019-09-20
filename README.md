@@ -1,2 +1,2 @@
 #	bootcamp-15
-#	https://klapek11970.github.io/bootcamp-15/
+#	https://patrykzah.github.io/bootcamp-15/
